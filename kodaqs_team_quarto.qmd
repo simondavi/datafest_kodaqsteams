@@ -1,18 +1,12 @@
 ---
 title: "KODAQS Team"
-author:
+authors:
   - name: "Ladislav"
-author:
   - name: "David"
-author:
   - name: "Josefine"
-author:
   - name: "Lukas"
-author:
   - name: "Erik"
-author:
   - name: "Elnari"
-author:
   - name: "Soyeon"
 format:
   html:
