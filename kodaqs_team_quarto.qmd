@@ -1,0 +1,49 @@
+---
+title: "KODAQS Team"
+author:
+  - name: "Ladislav"
+    orcid: "0009-0000-5050-3608"
+author:
+  - name: "David"
+    orcid: "0"
+author:
+  - name: "Josefine"
+    orcid: "0"
+author:
+  - name: "Lukas"
+    orcid: "0"
+author:
+  - name: "Erik"
+    orcid: "0"
+author:
+  - name: "Elnari"
+    orcid: "0"
+author:
+  - name: "Soyeon"
+    orcid: "0"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    toc-title: "Contents"
+    embed-resources: true
+    code-fold: show
+    code-tools: true
+    code-summary: "Show code"
+    theme: cosmo
+    fig-width: 10
+    fig-height: 7
+    fig-dpi: 300
+    number-sections: true
+execute:
+  warning: false
+  message: false
+  echo: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Introduction
+

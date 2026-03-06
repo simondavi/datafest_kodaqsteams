@@ -1,0 +1,24 @@
+Details about data:
+- Covers ten large Wikipedia languageg editions: English (enwiki), German (dewiki), French (frwiki), Swedish (svwiki), Dutch (nlwiki), Russian (ruwiki), Spanish (eswiki), Italian (itwiki), Arabic (arwiki), and Polish (plwiki).
+- Covers top 10,000 most-read articles in each of those language editions from all of 2025.
+
+Data includes:
+- Page-level information (page info, 154k observations):
+-- A 50-dimensional topic embedding based on the page's links. These are language-agnostic so comparable across language editions. See model details: https://meta.wikimedia.org/wiki/Machine_learning_models/Production/Language_agnostic_link-based_article_topic
+-- Predicted high-level topics for the article from the same model as above.
+-- Total number of pageviews in 2025.
+-- Various IDs: page_title (for easy interpretability), page_id for a stable identifier (e.g., https:<lang>.wikipedia.org/wiki/?curid={page_id}) and qid as a language-agnostic identifer to indicate when articles in separate language editions are about the same topic (www.wikidata.org/wiki/{qid}).
+
+- Page view information (page_views; 36M observations):
+-- Number of daily page view of articles (days with small number of views are excluded for data privacy reasons)
+
+- Information about all edits to those articles in 2025 (split up by language version; size varies):
+-- User who made the edit
+-- Timestamp of edit
+-- Comment (if any) they added to describe the edit
+-- Computed "edit types" that indicate what was changed about the edit -- see mwedittypes library (https://pypi.org/project/mwedittypes/) for more details.
+-- Revision tags that are automatically applied. Descriptions can be found at corresponding https://<lang>.wikipedia.org/wiki/Special:Tags. Most useful are probably those related to whether an edit was reverted (mw-reverted; https://en.wikipedia.org/wiki/Wikipedia:Reverting) or itself was reverting another edit (presence of either mw-undo, mw-rollback, or mw-manual-revert).
+
+
+Example analysis using python:
+https://public-paws.wmcloud.org/User:Isaac_(WMF)/DataFest/example-analysis.ipynb
