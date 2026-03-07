@@ -1,12 +1,12 @@
 ---
 title: "KODAQS Team"
 authors:
-  - name: "Ladislav"
   - name: "David"
-  - name: "Josefine"
-  - name: "Lukas"
-  - name: "Erik"
   - name: "Elnari"
+  - name: "Erik"
+  - name: "Josefine"
+  - name: "Ladislav"
+  - name: "Lukas"
   - name: "Soyeon"
 format:
   html:
@@ -15,7 +15,7 @@ format:
     toc-depth: 3
     toc-title: "Contents"
     embed-resources: true
-    code-fold: show
+    code-fold: true
     code-tools: true
     code-summary: "Show code"
     theme: cosmo
@@ -32,7 +32,35 @@ editor:
     wrap: 72
 ---
 
+# Preface
+
+This Quarto document serves as the ***KODAQS Team***'s submission & presentation for the [DataFest Germany 2026](https://www.uni-mannheim.de/datascience/events/datafest-2026/), based on a [GitHub repository](https://github.com/simondavi/datafest_kodaqsteams/).
+
+The document compiles various analyses done by the team, focussing on different aspects of data quality, namely:
+1. a
+2. language embeddings
+3. 
+
+```{mermaid}
+flowchart LR
+  A[Setup] --> B[Embeddings]
+  B --> C{Bot Analyses}
+  C --> D[Result one]
+  C --> E[Result two]
+  D --> F{Takeaways}
+  E --> F{Takeaways}
+```
+
+
 # Setup
+
+First, we need to make sure that the work is reproducible across devices:
+
+```{mermaid}
+flowchart LR
+  A[set work directory] --> B[manage R packages]
+  B -.-> C[create 'output' directory]
+```
 
 ```{r 00_setup}
 #| label: 00_setup
@@ -55,8 +83,6 @@ pacman::p_load(
 output_dir <- here("output")
 if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 ```
-
-
 
 
 # Cross-Language Embedding Audit
@@ -107,7 +133,9 @@ if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 ```
 
 
-# Repository & Session Information
+# Additional Information
+
+
 
 ```{r 10_session_info}
 #| label: 10_session_info
@@ -133,19 +161,19 @@ repository/
 │   ├── ruwiki.json                   # information about all edits to russian articles
 │   └── svwiki.json                   # information about all edits to swedish articles
 ├── extra/                            # additional resources provided by the DataFest
-│   ├── access_json.R                 # description
-│   ├── datafest_2026.ipynb           # description
-│   └── resources_information.txt     # description
+│   ├── access_json.R                 # 
+│   ├── datafest_2026.ipynb           # 
+│   └── resources_information.txt     # general information on the provided data
 ├── output/                           # generated tables and plots
 ├── src/                              # individual code chunks
-│   ├── 01_cross-lang.R               # description
-│   ├── 02_cross-lang-prep.R          # description
-│   ├── 03_cross-lang-reg.py          # description
-│   ├── 04_bot-analysis.R             # description
-│   ├── 05_bot-pred-prep.R            # description
-│   ├── 06_bot-prep-analysis.py       # description
-│   └── 07_mal-bot.R                  # description
-├── .gitignore
-├── LICENSE
-└── README.md
+│   ├── 01_cross-lang.R               # 
+│   ├── 02_cross-lang-prep.R          # 
+│   ├── 03_cross-lang-reg.py          # 
+│   ├── 04_bot-analysis.R             # 
+│   ├── 05_bot-pred-prep.R            # 
+│   ├── 06_bot-prep-analysis.py       # 
+│   └── 07_mal-bot.R                  # 
+├── .gitignore                        #
+├── LICENSE                           #
+└── README.md                         #
 ```
