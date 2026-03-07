@@ -26,11 +26,13 @@ repository/
 │   └── resources_information.txt     # description
 ├── output/                           # generated tables and plots
 ├── src/                              # individual code chunks
-│   ├── 01_bot-analysis.R             # description
-│   ├── 02_cross-lang.R               # description
-│   ├── 03_bot-pred-prep.R            # description
-│   ├── 04_bot-prep-analysis.py       # description
-│   └── 05_mal-bot.R                  # description
+│   ├── 01_cross-lang.R               # description
+│   ├── 02_cross-lang-prep.R          # description
+│   ├── 03_cross-lang-reg.py          # description
+│   ├── 04_bot-analysis.R             # description
+│   ├── 05_bot-pred-prep.R            # description
+│   ├── 06_bot-prep-analysis.py       # description
+│   └── 07_mal-bot.R                  # description
 ├── .gitignore                        # note data/ folder is ignored
 ├── LICENSE                           # CC-BY-SA license documentation
 └── README.md                         # project overview and documentation
