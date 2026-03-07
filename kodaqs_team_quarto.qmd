@@ -58,41 +58,52 @@ if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 
 
-# Bot Analysis
-
-```{r 01_bot-analysis}
-#| label: 01_bot-analysis
-#| file: src/01_bot-analysis.R
-```
-
 
 # Cross-Language Embedding Audit
 
-```{r 02_cross-lang}
-#| label: 02_cross-lang
-#| file: src/02_cross-lang.R
+```{r 01_cross-lang}
+#| label: 01_cross-lang
+#| file: src/01_cross-lang.R
+```
+
+```{r 02_cross-lang-prep}
+#| label: 02_cross-lang-prep
+#| file: src/02_cross-lang-prep.R
+```
+
+```{py 03_cross-lang-reg}
+#| label: 03_cross-lang-reg
+#| file: src/03_cross-lang-reg.py
 ```
 
 
-# Bot Prediction Using sap-rpt-1-oss
+# Bot Analyses
 
-```{r 03_bot-pred-prep}
-#| label: 03_bot-pred-prep
-#| file: src/03_bot-pred-prep.R
+```{r 04_bot-analysis}
+#| label: 04_bot-analysis
+#| file: src/04_bot-analysis.R
 ```
 
 
-```{py 04_bot-pred-analysis}
-#| label: 04_bot-pred-analysis
-#| file: src/04_bot-pred-analysis.py
+## Bot Prediction Using sap-rpt-1-oss
+
+```{r 05_bot-pred-prep}
+#| label: 05_bot-pred-prep
+#| file: src/05_bot-pred-prep.R
 ```
 
 
-# Malicious Bots
+```{py 06_bot-pred-analysis}
+#| label: 06_bot-pred-analysis
+#| file: src/06_bot-pred-analysis.py
+```
 
-```{r 05_mal-bot}
-#| label: 05_mal-bot
-#| file: src/05_mal-bot.R
+
+## Malicious Bots
+
+```{r 07_mal-bot}
+#| label: 07_mal-bot
+#| file: src/07_mal-bot.R
 ```
 
 
@@ -127,11 +138,13 @@ repository/
 │   └── resources_information.txt     # description
 ├── output/                           # generated tables and plots
 ├── src/                              # individual code chunks
-│   ├── 01_bot-analysis.R             # description
-│   ├── 02_cross-lang.R               # description
-│   ├── 03_bot-pred-prep.R            # description
-│   ├── 04_bot-prep-analysis.py       # description
-│   └── 05_mal-bot.R                  # description
+│   ├── 01_cross-lang.R               # description
+│   ├── 02_cross-lang-prep.R          # description
+│   ├── 03_cross-lang-reg.py          # description
+│   ├── 04_bot-analysis.R             # description
+│   ├── 05_bot-pred-prep.R            # description
+│   ├── 06_bot-prep-analysis.py       # description
+│   └── 07_mal-bot.R                  # description
 ├── .gitignore
 ├── LICENSE
 └── README.md
