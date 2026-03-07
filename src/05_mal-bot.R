@@ -4,6 +4,18 @@ library(purrr)
 library(lubridate)
 
 # -----------------------------
+# Key insight
+# -----------------------------
+# The Wikipedia bot label mostly captures “good bots” — low revert rate, low edits 
+# per editor/page.
+#
+# The malicious_bot_like flag presented here captures suspicious editors among humans, 
+# who have much higher revert rates and slightly more concentrated editing activity.
+# 
+# This suggests the metric is successfully highlighting potentially problematic users 
+# that are not flagged as bots.
+
+# -----------------------------
 # Load sample Swedish Wikipedia data
 # -----------------------------
 svwiki_sample <- textConnection(readLines(gzfile("Data/data/edit_types/svwiki.json.gz"), n = 10000))
