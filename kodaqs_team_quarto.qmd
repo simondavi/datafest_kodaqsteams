@@ -34,7 +34,7 @@ editor:
 
 # Preface
 
-This Quarto document serves as the ***KODAQS Team***'s submission for the [DataFest Germany 2026](https://www.uni-mannheim.de/datascience/events/datafest-2026/), based on a public [GitHub repository](https://github.com/simondavi/datafest_kodaqsteams/).
+This Quarto document serves as the ***KODAQS Team****'s* submission for the [DataFest Germany 2026](https://www.uni-mannheim.de/datascience/events/datafest-2026/), based on a public [GitHub repository](https://github.com/simondavi/datafest_kodaqsteams/).
 
 The document compiles various analyses done by the team, focussing on different aspects of data quality, namely:
 
@@ -44,13 +44,17 @@ The document compiles various analyses done by the team, focussing on different 
 
 ```{mermaid}
 flowchart LR
-  A[Setup] --> B[Embeddings]
-  B --> C{Bot Analyses}
-  C --> D[Result one]
-  C --> E[Result two]
-  D --> F{Takeaways}
-  E --> F{Takeaways}
+  A(Setup) --> B{QID as identifier?}
+  B --> C[embeddings]
+  B --> D[how pages differ]
+  C --> E{Is bot?}
+  D --> E{Is bot?}
+  E --> F[a]
+  E --> G[b]
+  F --> H(Takeaways)
+  G --> H(Takeaways)
 ```
+
 
 
 # Setup
@@ -60,7 +64,7 @@ First, the script ensures interoperability & reproducibility, by:
 ```{mermaid}
 flowchart LR
   A[setting the work directory] --> B[managing R packages]
-  B -.-> C[creating 'output' directory]
+  B -.-> C[creating the 'output' directory]
 ```
 
 ::: {.callout-warning}
@@ -157,7 +161,9 @@ The goal is to examine, whether the official bot label primarily captures well-b
 
 # Additional Information
 
+::: {.callout-note}
 This project is part of the [KODAQS Data Quality Academy Certificate Program](https://www.gesis.org/en/gesis-training/kodaqs-academy/kodaqs-data-quality-academy-certificate-program).
+:::
 
 ```{r 10_session_info}
 #| label: 10_session_info
