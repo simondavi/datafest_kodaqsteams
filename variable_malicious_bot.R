@@ -76,18 +76,23 @@ bot_quality %>%
 # Compute a "malicious_bot_like" flag per revision
 # Criteria: high revert rate (>10%), many edits per page (>5)
 # -----------------------------
+# -----------------------------
+# Compute "malicious_bot_like" using quantiles
+# -----------------------------
 df_clean <- df_clean %>%
-  group_by(user_text) %>%  # per editor
+  group_by(user_text) %>%
   mutate(
     edits_per_page = n() / n_distinct(page_id),
-    malicious_bot_like = (mean(revert_flag) > 0.3) | 
-      (edits_per_page > 5)
+    revert_rate_user = mean(revert_flag)
   ) %>%
-  ungroup()
-
-# Flag suspicious "malicious bot-like" behavior:
-# - unusually high revert rate (>30%)
-# - many edits per page (>2)
+  ungroup() %>%
+  mutate(
+    # 80th percentile thresholds for revert rate and edits per page
+    revert_thresh = quantile(revert_rate_user, 0.8, na.rm = TRUE),
+    edits_per_page_thresh = quantile(edits_per_page, 0.8, na.rm = TRUE),
+    malicious_bot_like = (revert_rate_user > revert_thresh) |
+      (edits_per_page > edits_per_page_thresh)
+  )
 
 # -----------------------------
 # Summary table by our computed "malicious_bot_like"
