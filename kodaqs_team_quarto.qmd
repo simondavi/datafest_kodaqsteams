@@ -48,7 +48,7 @@ if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 library(pacman)
 
 pacman::p_load(
-  tidyverse, jsonlite, glmnet, sessioninfo
+  tidyverse, jsonlite, glmnet, purrr, lubridate, sessioninfo
   )
 
 # Output directory
@@ -87,6 +87,15 @@ if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 #| file: src/04_bot-pred-analysis.py
 ```
 
+
+
+
+# Malicious Bots
+
+```{r 05_mal-bot}
+#| label: 05_mal-bot
+#| file: src/05_mal-bot.R
+```
 
 
 # Repository & Session Information
