@@ -38,7 +38,7 @@ editor:
 #| label: 00_setup
 
 options(repos = c(CRAN = "https://cran.r-project.org"))
-set.seed(2024)
+set.seed(2026)
 
 if (!require("here", quietly = TRUE)) install.packages("here")
 library(here)
@@ -49,35 +49,11 @@ library(pacman)
 
 pacman::p_load(
   tidyverse, jsonlite, glmnet, sessioninfo
-)
+  )
 
 # Output directory
 output_dir <- here("output")
 if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
-
-
-# code below was provided by DataFest and is available in the access_json.R
-
-
-#drop n=1000 if you want to read everything
-con_pageviews <- textConnection(readLines(
-  gzfile("page_views.json.gz"),
-  n = 1000
-))
-pageviews_sample <- stream_in(con_pageviews, verbose = FALSE)
-close(con_pageviews)
-
-con_arwiki <- textConnection(readLines(gzfile("arwiki.json.gz"), n = 1000))
-arwiki_sample <- stream_in(con_arwiki, verbose = FALSE)
-close(con_arwiki)
-
-con_pageinfo <- textConnection(readLines(gzfile("page_info.json.gz"), n = 1000))
-pageinfo_sample <- stream_in(con_pageinfo, verbose = FALSE)
-close(con_pageinfo)
-
-head(pageviews_sample)
-head(arwiki_sample)
-head(pageinfo_sample)
 ```
 
 
