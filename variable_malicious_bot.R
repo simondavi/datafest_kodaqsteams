@@ -27,8 +27,9 @@ df_clean <- df %>%
     ts_parsed = ymd_hms(revision_timestamp, tz = "UTC"),
     # Fill missing is_bot values with FALSE
     is_bot_flag = ifelse(is.na(is_bot), FALSE, is_bot),
-    # Flag if revision was reverted based on common tags
-    revert_flag = map_lgl(revision_tags, ~ any(c("mw-reverted", "mw-rollback", "mw-undo") %in% .x))
+    # Flag if revision was reverted based on common revert tags
+    revert_flag = map_lgl(revision_tags, ~ !is.null(.x) &&
+                            any(c("mw-reverted", "mw-rollback", "mw-undo", "mw-manual-revert") %in% .x))
   )
 
 # -----------------------------
@@ -48,7 +49,7 @@ bot_quality <- df_clean %>%
     .groups = "drop"
   )
 
-# --- Optional: Hourly edit pattern plot ---
+# --- Hourly edit pattern plot ---
 
 # Aggregate hourly edits
 hourly_edits <- df_clean %>%
@@ -113,12 +114,6 @@ malicious_summary
 # Plot again
 # -----------------------------
 
-library(tidyverse)
-library(lubridate)
-
-# -----------------------------
-# Aggregate hourly edits for plotting
-# -----------------------------
 hourly_edits <- df_clean %>%
   filter(!is.na(ts_parsed)) %>%
   mutate(hour = hour(ts_parsed)) %>%
