@@ -73,10 +73,6 @@ bot_quality %>%
   mutate(edits_per_editor = n_edits / n_pages)
 
 # -----------------------------
-# Compute a "malicious_bot_like" flag per revision
-# Criteria: high revert rate (>10%), many edits per page (>5)
-# -----------------------------
-# -----------------------------
 # Compute "malicious_bot_like" using quantiles
 # -----------------------------
 df_clean <- df_clean %>%
