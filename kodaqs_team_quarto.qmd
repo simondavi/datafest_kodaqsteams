@@ -88,8 +88,6 @@ if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 ```
 
 
-
-
 # Malicious Bots
 
 ```{r 05_mal-bot}
@@ -110,19 +108,19 @@ sessioninfo::session_info(pkgs = "attached", include_base = TRUE)
 ```
 repository/
 ├── kodaqs_team_quarto.qmd            # this file (main analysis script)
-├── data/                             # files provided by the DataFest
-│   ├── arwiki.json                   # description
-│   ├── dewiki.json                   # description
-│   ├── enwiki.json                   # description
-│   ├── eswiki.json                   # description
-│   ├── frwiki.json                   # description
-│   ├── itwiki.json                   # description
-│   ├── nlwiki.json                   # description
-│   ├── page_info.json                # description
-│   ├── page_views.json               # description
-│   ├── plwiki.json                   # description
-│   ├── ruwiki.json                   # description
-│   └── svwiki.json                   # description
+├── data/                             # raw data provided by the DataFest (not shared)
+│   ├── arwiki.json                   # information about all edits to arabic articles
+│   ├── dewiki.json                   # information about all edits to german articles
+│   ├── enwiki.json                   # information about all edits to english articles
+│   ├── eswiki.json                   # information about all edits to spanish articles
+│   ├── frwiki.json                   # information about all edits to french articles
+│   ├── itwiki.json                   # information about all edits to italian articles
+│   ├── nlwiki.json                   # information about all edits to dutch articles
+│   ├── page_info.json                # page-level information (154k observations)
+│   ├── page_views.json               # page view information (36M observations)
+│   ├── plwiki.json                   # information about all edits to polish articles
+│   ├── ruwiki.json                   # information about all edits to russian articles
+│   └── svwiki.json                   # information about all edits to swedish articles
 ├── extra/                            # additional resources provided by the DataFest
 │   ├── access_json.R                 # description
 │   ├── datafest_2026.ipynb           # description
