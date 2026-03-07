@@ -54,12 +54,12 @@ flowchart LR
 
 # Setup
 
-First, we need to make sure that the work is reproducible across devices:
+First, the script ensures interoperability & reproducibility, by:
 
 ```{mermaid}
 flowchart LR
-  A[set work directory] --> B[manage R packages]
-  B -.-> C[create 'output' directory]
+  A[setting the work directory] --> B[managing R packages]
+  B -.-> C[creating 'output' directory]
 ```
 
 ```{r 00_setup}
@@ -129,9 +129,9 @@ if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 Wikipedia allows automated programs, known as *bots*, to perform repetitive maintenance tasks such as correcting links or updating formatting across many pages. These bots are typically approved by the Wikipedia community and are designed to operate transparently and reliably.
 
-This section compares the official Wikipedia bot label with a custom metric detecting suspicious editing behaviour in the Swedish Wikipedia sample.
+This section compares the official Wikipedia bot label with a custom metric detecting suspicious editing behaviour in the Swedish Wikipedia sample (*svwiki.json*).
 
-The goal is to examine whether the official bot label primarily captures well-behaved automated editors, while the proposed `malicious_bot_like` metric highlights potentially problematic editing patterns among human contributors.
+The goal is to examine, whether the official bot label primarily captures well-behaved automated editors, while the proposed `malicious_bot_like` metric highlights potentially problematic editing patterns among human contributors.
 
 ```{r 07_mal-bot}
 #| label: 07_mal-bot
@@ -152,7 +152,7 @@ The goal is to examine whether the official bot label primarily captures well-be
 
 # Additional Information
 
-
+This project is part of the [KODAQS Data Quality Academy Certificate Program](https://www.gesis.org/en/gesis-training/kodaqs-academy/kodaqs-data-quality-academy-certificate-program).
 
 ```{r 10_session_info}
 #| label: 10_session_info
