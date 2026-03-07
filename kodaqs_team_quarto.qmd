@@ -34,9 +34,10 @@ editor:
 
 # Preface
 
-This Quarto document serves as the ***KODAQS Team***'s submission & presentation for the [DataFest Germany 2026](https://www.uni-mannheim.de/datascience/events/datafest-2026/), based on a [GitHub repository](https://github.com/simondavi/datafest_kodaqsteams/).
+This Quarto document serves as the ***KODAQS Team***'s submission for the [DataFest Germany 2026](https://www.uni-mannheim.de/datascience/events/datafest-2026/), based on a public [GitHub repository](https://github.com/simondavi/datafest_kodaqsteams/).
 
 The document compiles various analyses done by the team, focussing on different aspects of data quality, namely:
+
 1. a
 2. language embeddings
 3. 
@@ -61,6 +62,10 @@ flowchart LR
   A[setting the work directory] --> B[managing R packages]
   B -.-> C[creating 'output' directory]
 ```
+
+::: {.callout-warning}
+The data for this project was provided by the DataFest and is not available directly in the repository. However, the data is publicly available via [Wikimedia](https://meta.wikimedia.org/wiki/Datasets). Since this document requires the data in order to run the code chunks and render the final html, **make sure that all required datasets are available in the *data/* folder**.
+:::
 
 ```{r 00_setup}
 #| label: 00_setup
