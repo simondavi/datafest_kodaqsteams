@@ -109,25 +109,31 @@ sessioninfo::session_info(pkgs = "attached", include_base = TRUE)
 **Repository structure:**
 ```
 repository/
-├── kodaqs_team_quarto.qmd     # This file (main analysis script)
-├── data/                      # files provided by the DataFest
-│   ├── arwiki.json            # description
-│   ├── dewiki.json            # description
-│   ├── enwiki.json            # description
-│   ├── eswiki.json            # description
-│   ├── frwiki.json            # description
-│   ├── itwiki.json            # description
-│   ├── nlwiki.json            # description
-│   ├── page_info.json         # description
-│   ├── page_views.json        # description
-│   ├── plwiki.json            # description
-│   ├── ruwiki.json            # description
-│   └── svwiki.json            # description
-├── extra/                     # additional resources provided by the DataFest
-├── output/                    # Generated tables and plots
-├── src/                       # Individual R code chunks
-│   ├── access_json.R          # file provided by the DataFest
-│   └── bot_analysis.R         # description
+├── kodaqs_team_quarto.qmd            # this file (main analysis script)
+├── data/                             # files provided by the DataFest
+│   ├── arwiki.json                   # description
+│   ├── dewiki.json                   # description
+│   ├── enwiki.json                   # description
+│   ├── eswiki.json                   # description
+│   ├── frwiki.json                   # description
+│   ├── itwiki.json                   # description
+│   ├── nlwiki.json                   # description
+│   ├── page_info.json                # description
+│   ├── page_views.json               # description
+│   ├── plwiki.json                   # description
+│   ├── ruwiki.json                   # description
+│   └── svwiki.json                   # description
+├── extra/                            # additional resources provided by the DataFest
+│   ├── access_json.R                 # description
+│   ├── datafest_2026.ipynb           # description
+│   └── resources_information.txt     # description
+├── output/                           # generated tables and plots
+├── src/                              # individual code chunks
+│   ├── 01_bot-analysis.R             # description
+│   ├── 02_cross-lang.R               # description
+│   ├── 03_bot-pred-prep.R            # description
+│   ├── 04_bot-prep-analysis.py       # description
+│   └── 05_mal-bot.R                  # description
 ├── .gitignore
 ├── LICENSE
 └── README.md
