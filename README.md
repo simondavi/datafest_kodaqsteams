@@ -21,19 +21,19 @@ repository/
 │   ├── ruwiki.json                   # information about all edits to russian articles
 │   └── svwiki.json                   # information about all edits to swedish articles
 ├── extra/                            # additional resources provided by the DataFest
-│   ├── access_json.R                 # description
-│   ├── datafest_2026.ipynb           # description
-│   └── resources_information.txt     # description
+│   ├── access_json.R                 # 
+│   ├── datafest_2026.ipynb           # 
+│   └── resources_information.txt     # general information on the provided data
 ├── output/                           # generated tables and plots
 ├── src/                              # individual code chunks
-│   ├── 01_cross-lang.R               # description
-│   ├── 02_cross-lang-prep.R          # description
-│   ├── 03_cross-lang-reg.py          # description
-│   ├── 04_bot-analysis.R             # description
-│   ├── 05_bot-pred-prep.R            # description
-│   ├── 06_bot-prep-analysis.py       # description
-│   └── 07_mal-bot.R                  # description
-├── .gitignore                        # note data/ folder is ignored
+│   ├── 01_cross-lang.R               # 
+│   ├── 02_cross-lang-prep.R          # 
+│   ├── 03_cross-lang-reg.py          # 
+│   ├── 04_bot-analysis.R             # 
+│   ├── 05_bot-pred-prep.R            # 
+│   ├── 06_bot-prep-analysis.py       # 
+│   └── 07_mal-bot.R                  # 
+├── .gitignore                        # note: data/ folder is ignored
 ├── LICENSE                           # CC-BY-SA license documentation
 └── README.md                         # project overview and documentation
 ```

@@ -76,7 +76,7 @@ if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 library(pacman)
 
 pacman::p_load(
-  tidyverse, jsonlite, glmnet, purrr, lubridate, sessioninfo
+  tidyverse, jsonlite, glmnet, purrr, lubridate, knitr, sessioninfo
   )
 
 # Output directory
@@ -158,39 +158,4 @@ This project is part of the [KODAQS Data Quality Academy Certificate Program](ht
 #| label: 10_session_info
 
 sessioninfo::session_info(pkgs = "attached", include_base = TRUE)
-```
-
-**Repository structure:**
-```
-repository/
-├── kodaqs_team_quarto.qmd            # this file (main analysis script)
-├── data/                             # raw data provided by the DataFest (not shared)
-│   ├── arwiki.json                   # information about all edits to arabic articles
-│   ├── dewiki.json                   # information about all edits to german articles
-│   ├── enwiki.json                   # information about all edits to english articles
-│   ├── eswiki.json                   # information about all edits to spanish articles
-│   ├── frwiki.json                   # information about all edits to french articles
-│   ├── itwiki.json                   # information about all edits to italian articles
-│   ├── nlwiki.json                   # information about all edits to dutch articles
-│   ├── page_info.json                # page-level information (154k observations)
-│   ├── page_views.json               # page view information (36M observations)
-│   ├── plwiki.json                   # information about all edits to polish articles
-│   ├── ruwiki.json                   # information about all edits to russian articles
-│   └── svwiki.json                   # information about all edits to swedish articles
-├── extra/                            # additional resources provided by the DataFest
-│   ├── access_json.R                 # 
-│   ├── datafest_2026.ipynb           # 
-│   └── resources_information.txt     # general information on the provided data
-├── output/                           # generated tables and plots
-├── src/                              # individual code chunks
-│   ├── 01_cross-lang.R               # 
-│   ├── 02_cross-lang-prep.R          # 
-│   ├── 03_cross-lang-reg.py          # 
-│   ├── 04_bot-analysis.R             # 
-│   ├── 05_bot-pred-prep.R            # 
-│   ├── 06_bot-prep-analysis.py       # 
-│   └── 07_mal-bot.R                  # 
-├── .gitignore                        #
-├── LICENSE                           #
-└── README.md                         #
 ```
