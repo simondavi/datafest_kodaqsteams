@@ -101,11 +101,28 @@ if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 ## Malicious Bots
 
+Wikipedia allows automated programs, known as *bots*, to perform repetitive maintenance tasks such as correcting links or updating formatting across many pages. These bots are typically approved by the Wikipedia community and are designed to operate transparently and reliably.
+
+This section compares the official Wikipedia bot label with a custom metric detecting suspicious editing behaviour in the Swedish Wikipedia sample.
+
+The goal is to examine whether the official bot label primarily captures well-behaved automated editors, while the proposed `malicious_bot_like` metric highlights potentially problematic editing patterns among human contributors.
+
 ```{r 07_mal-bot}
 #| label: 07_mal-bot
 #| file: src/07_mal-bot.R
 ```
 
+### Key Insights
+
+- The Wikipedia bot label mostly captures **\"good bots\"**, which show:
+  - low revert rates
+  - low edits per editor/page.
+
+- The `malicious_bot_like` flag identifies **suspicious editors among humans**, who tend to have:
+  - higher revert rates
+  - slightly more concentrated editing activity.
+
+- This suggests the metric highlights **potentially problematic users that are not flagged as bots**.
 
 # Repository & Session Information
 
