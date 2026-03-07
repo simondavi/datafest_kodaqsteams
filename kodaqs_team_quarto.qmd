@@ -123,6 +123,7 @@ repository/
 │   ├── plwiki.json            # description
 │   ├── ruwiki.json            # description
 │   └── svwiki.json            # description
+├── extra/                     # additional resources provided by the DataFest
 ├── output/                    # Generated tables and plots
 ├── src/                       # Individual R code chunks
 │   ├── access_json.R          # file provided by the DataFest
