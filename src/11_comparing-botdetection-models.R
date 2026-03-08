@@ -26,7 +26,7 @@ library(glmnet)      # Elastic-net penalised logistic regression
 library(lubridate)   # Timestamp parsing for temporal features
 library(ggrepel)     # Non-overlapping labels on scatter plots
 
-setwd("C:/Users/raedle/Desktop/KODAQS DataFest/DataFest2026/DataFest2026/data")
+setwd("")
 
 # Convenience null-coalescing operator (used inside extract_features)
 `%||%` <- function(a, b) if (!is.null(a)) a else b
@@ -638,3 +638,4 @@ if (nrow(transfer_results) > 0) {
 }
 
 cat("\nDone — all plots rendered.\n")
+
