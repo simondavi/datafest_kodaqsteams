@@ -42,6 +42,10 @@ The document compiles various analyses done by the team, focussing on different 
 2. language embeddings
 3. 
 
+# Key Insights
+
+Our collective insights pertain to conceptualisation disrepancies across Wikipedia language families. The key data quality issues we have identified in this regard include: conceptual ambiguity, contextual dependence/bias and a lack in standardization. We show this by first looking at the QID identifier variable, using examples of differences in terms of conceptualisation across languages, followed by looking at whether bots can be predicted in the same way in different language families.
+
 ```{mermaid}
 flowchart LR
   A(Setup) --> B{QID as identifier?}
