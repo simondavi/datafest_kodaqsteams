@@ -21,7 +21,7 @@ library(dplyr)
 # 1. LOAD DATA
 # -----------------------------------------------------------------------------
 
-setwd("C:/Users/raedle/Desktop/KODAQS DataFest/DataFest2026/DataFest2026/data")
+setwd("")
 
 # Read first 3000 rows of the English Wikipedia edit data
 eng <- textConnection(readLines(gzfile("enwiki.json.gz"), n = 20000))
@@ -701,4 +701,5 @@ tibble(term = rownames(coef_e), estimate = as.numeric(coef_e)) %>%
   filter(term != "(Intercept)", estimate != 0) %>%
   arrange(desc(estimate)) %>%
   print(n = 25)
+
 
