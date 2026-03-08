@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bot Detection Results — All Language Editions</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
+    h2 { margin-top: 40px; color: #1a4a8a; }
+    table { border-collapse: collapse; margin: 12px 0 24px 0; font-size: 0.9em; }
+    th { background: #1a4a8a; color: white; padding: 8px 14px; text-align: left; }
+    td { padding: 6px 14px; border-bottom: 1px solid #ddd; }
+    tr:nth-child(even) { background: #f4f7fb; }
+    .good { color: #2a7a2a; font-weight: bold; }
+    .warn { color: #b05000; font-weight: bold; }
+    .bad  { color: #aa0000; font-weight: bold; }
+    .section { margin-bottom: 48px; }
+    .pred-table td { font-family: monospace; font-size: 0.85em; }
+    .label { font-size: 0.8em; color: #666; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+<h1>Bot Detection — SAP RPT-1 Results Across 10 Wikipedia Language Editions</h1>
+<p>Sample: 1,000 edits per language (500 train / 500 test) · N_LINES = 50,000 · max_context_size = 2048 · bagging = 1</p>
+
+<!-- ===== SUMMARY TABLE ===== -->
+<h2>Summary</h2>
+<table>
+  <tr>
+    <th>Wiki</th>
+    <th>Accuracy</th>
+    <th>Bot precision</th>
+    <th>Bot recall</th>
+    <th>Bot F1</th>
+    <th>Bot support</th>
+    <th>Human support</th>
+    <th>Bot rate in test</th>
+  </tr>
+  <tr><td>arwiki</td><td>0.964</td><td class="good">0.88</td><td class="good">0.98</td><td class="good">0.93</td><td>117</td><td>383</td><td class="warn">23.4%</td></tr>
+  <tr><td>dewiki</td><td class="good">0.988</td><td class="good">0.88</td><td class="warn">0.58</td><td class="warn">0.70</td><td>12</td><td>488</td><td>2.4%</td></tr>
+  <tr><td>enwiki</td><td class="good">0.980</td><td class="warn">0.64</td><td class="warn">0.64</td><td class="warn">0.64</td><td>14</td><td>486</td><td>2.8%</td></tr>
+  <tr><td>eswiki</td><td class="warn">0.942</td><td class="bad">0.63</td><td class="bad">0.62</td><td class="bad">0.62</td><td>39</td><td>461</td><td class="warn">7.8%</td></tr>
+  <tr><td>frwiki</td><td>0.972</td><td>0.80</td><td class="bad">0.24</td><td class="bad">0.36</td><td>17</td><td>483</td><td>3.4%</td></tr>
+  <tr><td>itwiki</td><td class="good">0.986</td><td class="good">0.90</td><td>0.78</td><td class="good">0.84</td><td>23</td><td>477</td><td>4.6%</td></tr>
+  <tr><td>nlwiki</td><td class="good">0.992</td><td>0.85</td><td>0.85</td><td>0.85</td><td>13</td><td>487</td><td>2.6%</td></tr>
+  <tr><td>plwiki</td><td>0.976</td><td class="good">0.89</td><td class="warn">0.62</td><td class="warn">0.73</td><td>26</td><td>474</td><td>5.2%</td></tr>
+  <tr><td>ruwiki</td><td class="warn">0.952</td><td>0.79</td><td class="good">0.90</td><td class="good">0.84</td><td>71</td><td>429</td><td class="warn">14.2%</td></tr>
+  <tr><td>svwiki</td><td>0.978</td><td class="good">0.87</td><td>0.71</td><td>0.78</td><td>28</td><td>472</td><td>5.6%</td></tr>
+</table>
+
+<!-- ===== PER-LANGUAGE SECTIONS ===== -->
+
+<div class="section">
+<h2>arwiki — Arabic Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.99</td><td>0.96</td><td>0.98</td><td>383</td></tr>
+  <tr><td>Bot</td><td>0.88</td><td>0.98</td><td>0.93</td><td>117</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.964</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>1</td><td>1</td><td>0.924983</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000362</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000014</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000047</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.000083</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000233</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.035467</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000016</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.000328</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000607</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.000038</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000012</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000106</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000016</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000030</td></tr>
+  <tr><td>29901</td><td>1</td><td>1</td><td>0.990252</td></tr>
+  <tr><td>29642</td><td>0</td><td>1</td><td>0.794137</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000021</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000355</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000666</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>dewiki — German Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.99</td><td>1.00</td><td>0.99</td><td>488</td></tr>
+  <tr><td>Bot</td><td>0.88</td><td>0.58</td><td>0.70</td><td>12</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.988</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.000021</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000102</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000074</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000844</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.005552</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.003890</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.000295</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000038</td></tr>
+  <tr><td>29487</td><td>0</td><td>1</td><td>0.662891</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000550</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.000307</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000054</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000287</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000051</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000626</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000053</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.000057</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000113</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000331</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000302</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>enwiki — English Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.99</td><td>0.99</td><td>0.99</td><td>486</td></tr>
+  <tr><td>Bot</td><td>0.64</td><td>0.64</td><td>0.64</td><td>14</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.980</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.001940</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000088</td></tr>
+  <tr><td>26089</td><td>0</td><td>1</td><td>0.555809</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.028046</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.000138</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000633</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.000831</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.002000</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.003634</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.124218</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.000299</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.080736</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000101</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000399</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000160</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000873</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.000114</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000922</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000112</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000163</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>eswiki — Spanish Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.97</td><td>0.97</td><td>0.97</td><td>461</td></tr>
+  <tr><td>Bot</td><td>0.63</td><td>0.62</td><td>0.62</td><td>39</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.942</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.000011</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000026</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000138</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000016</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.000004</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000082</td></tr>
+  <tr><td>40359</td><td>0</td><td>1</td><td>0.585096</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000423</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.000010</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000085</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.311143</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000616</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000047</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000013</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000007</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000013</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.007451</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000109</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.001706</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000028</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>frwiki — French Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.97</td><td>1.00</td><td>0.99</td><td>483</td></tr>
+  <tr><td>Bot</td><td>0.80</td><td>0.24</td><td>0.36</td><td>17</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.972</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.000112</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000046</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000502</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.004643</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.449644</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000056</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.000100</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000036</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.000013</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000043</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.000688</td></tr>
+  <tr><td>32207</td><td>1</td><td>0</td><td>0.261396</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.006962</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000575</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000340</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000118</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.000670</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.002893</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.024239</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000065</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>itwiki — Italian Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.99</td><td>1.00</td><td>0.99</td><td>477</td></tr>
+  <tr><td>Bot</td><td>0.90</td><td>0.78</td><td>0.84</td><td>23</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.986</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.002706</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000356</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000008</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000012</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.000031</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000018</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.000088</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000036</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.000005</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.107770</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.009529</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000030</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000123</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000163</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.001349</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000068</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.005412</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000023</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000072</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000064</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>nlwiki — Dutch Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>1.00</td><td>1.00</td><td>1.00</td><td>487</td></tr>
+  <tr><td>Bot</td><td>0.85</td><td>0.85</td><td>0.85</td><td>13</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.992</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.000012</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000475</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000133</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000125</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.000394</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000027</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.000686</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000020</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.000008</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000357</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.005048</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000090</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000036</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000197</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000358</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000073</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.000038</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.006130</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000975</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000021</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>plwiki — Polish Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.98</td><td>1.00</td><td>0.99</td><td>474</td></tr>
+  <tr><td>Bot</td><td>0.89</td><td>0.62</td><td>0.73</td><td>26</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.976</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.005488</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000193</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.000139</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.007870</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.000121</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000775</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.009872</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.000022</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.000337</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000184</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.000137</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000191</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000083</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000267</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000621</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000055</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.000217</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000849</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000018</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000015</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>ruwiki — Russian Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.98</td><td>0.96</td><td>0.97</td><td>429</td></tr>
+  <tr><td>Bot</td><td>0.79</td><td>0.90</td><td>0.84</td><td>71</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.952</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>1</td><td>0.981239</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.005223</td></tr>
+  <tr><td>26089</td><td>0</td><td>1</td><td>0.620245</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000615</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.001456</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.000479</td></tr>
+  <tr><td>40359</td><td>1</td><td>1</td><td>0.946169</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.005828</td></tr>
+  <tr><td>29487</td><td>1</td><td>1</td><td>0.824860</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.000406</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.000077</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.000040</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000260</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000118</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.010163</td></tr>
+  <tr><td>29901</td><td>1</td><td>0</td><td>0.000631</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.000019</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000194</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000092</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.000040</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>svwiki — Swedish Wikipedia</h2>
+<div class="label">Classification Report</div>
+<table>
+  <tr><th></th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Support</th></tr>
+  <tr><td>Human</td><td>0.98</td><td>0.99</td><td>0.99</td><td>472</td></tr>
+  <tr><td>Bot</td><td>0.87</td><td>0.71</td><td>0.78</td><td>28</td></tr>
+  <tr><td><strong>Accuracy</strong></td><td colspan="3"><strong>0.978</strong></td><td>500</td></tr>
+</table>
+<div class="label">Prediction Table (first 20 rows)</div>
+<table class="pred-table">
+  <tr><th>Index</th><th>Actual</th><th>Predicted</th><th>Prob bot</th></tr>
+  <tr><td>25480</td><td>0</td><td>0</td><td>0.001874</td></tr>
+  <tr><td>37915</td><td>0</td><td>0</td><td>0.000673</td></tr>
+  <tr><td>26089</td><td>0</td><td>0</td><td>0.001558</td></tr>
+  <tr><td>29046</td><td>0</td><td>0</td><td>0.000787</td></tr>
+  <tr><td>12083</td><td>0</td><td>0</td><td>0.003798</td></tr>
+  <tr><td>42811</td><td>0</td><td>0</td><td>0.002819</td></tr>
+  <tr><td>40359</td><td>0</td><td>0</td><td>0.000115</td></tr>
+  <tr><td>38064</td><td>0</td><td>0</td><td>0.001482</td></tr>
+  <tr><td>29487</td><td>0</td><td>0</td><td>0.003574</td></tr>
+  <tr><td>38242</td><td>0</td><td>0</td><td>0.001017</td></tr>
+  <tr><td>12451</td><td>0</td><td>0</td><td>0.001850</td></tr>
+  <tr><td>32207</td><td>0</td><td>0</td><td>0.001850</td></tr>
+  <tr><td>15384</td><td>0</td><td>0</td><td>0.000179</td></tr>
+  <tr><td>4580</td><td>0</td><td>0</td><td>0.000035</td></tr>
+  <tr><td>23111</td><td>0</td><td>0</td><td>0.000800</td></tr>
+  <tr><td>29901</td><td>0</td><td>0</td><td>0.000088</td></tr>
+  <tr><td>29642</td><td>0</td><td>0</td><td>0.002029</td></tr>
+  <tr><td>17672</td><td>0</td><td>0</td><td>0.000377</td></tr>
+  <tr><td>628</td><td>0</td><td>0</td><td>0.000505</td></tr>
+  <tr><td>262</td><td>0</td><td>0</td><td>0.001178</td></tr>
+</table>
+</div>
+
+</body>
+</html>
