@@ -21,7 +21,7 @@ library(dplyr)
 # 1. LOAD DATA
 # -----------------------------------------------------------------------------
 
-setwd("C:/Users/raedle/Desktop/KODAQS DataFest/DataFest2026/DataFest2026/data")
+setwd("")
 
 # Read first 3000 rows of the English Wikipedia edit data
 ru <- textConnection(readLines(gzfile("ruwiki.json.gz"), n = 20000))
@@ -371,3 +371,4 @@ features_combined %>%
     .groups      = "drop"
   ) %>%
   mutate(is_bot = ifelse(is_bot == 1, "Bot", "Human"))
+
