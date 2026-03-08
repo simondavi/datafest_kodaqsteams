@@ -8,7 +8,7 @@ library(dplyr)
 # 1. LOAD DATA
 # -----------------------------------------------------------------------------
 
-setwd("C:/Users/raedle/Desktop/KODAQS DataFest/DataFest2026/DataFest2026/data")
+setwd("")
 
 # Read first 3000 rows of the English Wikipedia edit data
 page <- textConnection(readLines(gzfile("page_info.json.gz")))
@@ -834,4 +834,5 @@ ggplot(top4,
     panel.grid.major.x = element_blank()
   ) +
   guides(fill = guide_legend(nrow = 3, byrow = TRUE))
+
 
