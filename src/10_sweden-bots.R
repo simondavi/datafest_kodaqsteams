@@ -14,7 +14,7 @@ library(dplyr)
 # 1. LOAD DATA
 # -----------------------------------------------------------------------------
 
-setwd("C:/Users/raedle/Desktop/KODAQS DataFest/DataFest2026/DataFest2026/data")
+setwd("")
 
 sve <- textConnection(readLines(gzfile("svwiki.json.gz"), n = 20000))
 sve_data <- stream_in(sve, verbose = FALSE)
@@ -367,3 +367,4 @@ features_combined %>%
     .groups      = "drop"
   ) %>%
   mutate(is_bot = ifelse(is_bot == 1, "Bot", "Human"))
+
